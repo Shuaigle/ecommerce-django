@@ -1,0 +1,58 @@
+[
+    {
+        "model": "inventory.category",
+        "pk": 1,
+        "fields": {
+            "name": "skirt",
+            "slug": "skirt",
+            "is_active": true,
+            "parent": null,
+            "lft": 1,
+            "rght": 2,
+            "tree_id": 2,
+            "level": 0
+        }
+    },
+    {
+        "model": "inventory.category",
+        "pk": 2,
+        "fields": {
+            "name": "maxdress",
+            "slug": "maxdress",
+            "is_active": true,
+            "parent": null,
+            "lft": 1,
+            "rght": 2,
+            "tree_id": 1,
+            "level": 0
+        }
+    },
+    {
+        "model": "inventory.category",
+        "pk": 3,
+        "fields": {
+            "name": "3c-computer-peripheral",
+            "slug": "3c-keyboard",
+            "is_active": true,
+            "parent": null,
+            "lft": 1,
+            "rght": 2,
+            "tree_id": 2,
+            "level": 0
+        }
+    },
+    {
+        "model": "inventory.category",
+        "pk": 4,
+        "fields": {
+            "name": "3C",
+            "slug": "3C",
+            "is_active": true,
+            "parent": null,
+            "lft": 1,
+            "rght": 2,
+            "tree_id": 3,
+            "level": 0
+        }
+    }
+]

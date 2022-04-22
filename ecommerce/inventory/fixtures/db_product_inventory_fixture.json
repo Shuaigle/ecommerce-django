@@ -1,0 +1,110 @@
+[
+    {
+        "model": "inventory.productinventory",
+        "pk": 1,
+        "fields": {
+            "sku": "1111111",
+            "upc": "123123",
+            "product_type": 1,
+            "product": 1,
+            "brand": 1,
+            "is_active": true,
+            "retail_price": "97.00",
+            "store_price": "92.00",
+            "sale_price": "43.00",
+            "weight": 724.0,
+            "created_at": "2022-04-21T08:34:09.895",
+            "updated_at": "2022-04-21T08:34:09.895"
+        }
+    },
+    {
+        "model": "inventory.productinventory",
+        "pk": 2,
+        "fields": {
+            "sku": "12121",
+            "upc": "14214124",
+            "product_type": 1,
+            "product": 1,
+            "brand": 1,
+            "is_active": true,
+            "retail_price": "77.00",
+            "store_price": "74.00",
+            "sale_price": "33.00",
+            "weight": 356.0,
+            "created_at": "2022-04-21T08:35:54.393",
+            "updated_at": "2022-04-21T08:35:54.393"
+        }
+    },
+    {
+        "model": "inventory.productinventory",
+        "pk": 3,
+        "fields": {
+            "sku": "43544567",
+            "upc": "345347",
+            "product_type": 1,
+            "product": 2,
+            "brand": 1,
+            "is_active": true,
+            "retail_price": "666.00",
+            "store_price": "435.00",
+            "sale_price": "222.00",
+            "weight": 1290.0,
+            "created_at": "2022-04-21T08:36:27.452",
+            "updated_at": "2022-04-21T08:36:27.452"
+        }
+    },
+    {
+        "model": "inventory.productinventory",
+        "pk": 4,
+        "fields": {
+            "sku": "9967865",
+            "upc": "7684567",
+            "product_type": 1,
+            "product": 3,
+            "brand": 1,
+            "is_active": true,
+            "retail_price": "997.44",
+            "store_price": "234.44",
+            "sale_price": "234.22",
+            "weight": 442.0,
+            "created_at": "2022-04-21T08:37:03.205",
+            "updated_at": "2022-04-21T08:37:03.205"
+        }
+    },
+    {
+        "model": "inventory.productinventory",
+        "pk": 5,
+        "fields": {
+            "sku": "1235436",
+            "upc": "2445674",
+            "product_type": 1,
+            "product": 4,
+            "brand": 1,
+            "is_active": true,
+            "retail_price": "234.77",
+            "store_price": "111.11",
+            "sale_price": "55.77",
+            "weight": 221.0,
+            "created_at": "2022-04-21T08:37:30.779",
+            "updated_at": "2022-04-21T08:37:30.779"
+        }
+    },
+    {
+        "model": "inventory.productinventory",
+        "pk": 6,
+        "fields": {
+            "sku": "34535345",
+            "upc": "345345334",
+            "product_type": 1,
+            "product": 2,
+            "brand": 1,
+            "is_active": true,
+            "retail_price": "345.33",
+            "store_price": "228.99",
+            "sale_price": "123.45",
+            "weight": 789.0,
+            "created_at": "2022-04-21T08:38:04.995",
+            "updated_at": "2022-04-21T08:38:04.995"
+        }
+    }
+]

@@ -1,0 +1,66 @@
+[
+    {
+        "model": "inventory.product",
+        "pk": 1,
+        "fields": {
+            "web_id": "00114444",
+            "slug": "keyboard_114444",
+            "name": "jojokeyboard",
+            "description": "Black Switches - If you’re into fast-paced games such as first-person shooters, linear switches will give you an edge. There is no dome to compress or click to overcome, the keystroke is consistent and smooth that offers unmistakable feedback when pressed.",
+            "is_active": true,
+            "created_at": "2022-04-19T05:24:35.249",
+            "updated_at": "2022-04-19T05:24:35.249",
+            "category": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "inventory.product",
+        "pk": 2,
+        "fields": {
+            "web_id": "00437777",
+            "slug": "skir-437777",
+            "name": "Taydey A-Line Pleated Vintage Skirts for Women",
+            "description": "The print on the dress (if any) might be slightly different from pictures for different batch productions\r\nPlease don't soak the dress in water for a long time, otherwise the dye will fade(Of course,dye won't fade under normal washing)",
+            "is_active": true,
+            "created_at": "2022-04-19T05:26:31.317",
+            "updated_at": "2022-04-19T05:26:31.317",
+            "category": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "inventory.product",
+        "pk": 3,
+        "fields": {
+            "web_id": "123123123",
+            "slug": "maxdress123",
+            "name": "Amazon Essentials Women's Tank Maxi Dress",
+            "description": "95% Viscose, 5% Elastane\r\nImported\r\nMachine Wash\r\nStylish tank style sleeveless maxi dress perfect for a casual day out\r\nMade in Indonesia\r\nEveryday made better: we listen to customer feedback and fine-tune every detail to ensure quality, fit, and comfort",
+            "is_active": true,
+            "created_at": "2022-04-19T05:27:35.151",
+            "updated_at": "2022-04-19T05:27:35.151",
+            "category": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "inventory.product",
+        "pk": 4,
+        "fields": {
+            "web_id": "00878888",
+            "slug": "key_878888",
+            "name": "Featured from our brands Amazon Basics Matte Black Wired Keyboard - US Layout (QWERTY)",
+            "description": "Low-profile Keys Provide a Quiet, Comfortable Typing Experience\r\nHotkeys Enable Easy Access for Media, My Computer, Mute, Volume down, Volume up, and Calculator; 4 Function Keys Control Previous Track, Stop, Play/pause, next Track on Your Media Player\r\nSimple Wired USB Connection; Works with Windows 2000, XP, Vista, 7, 8, and 10\r\nShips in Certified Frustration-free Packaging; Backed by an Amazon Basics 1-Year Standard Limited Warranty",
+            "is_active": true,
+            "created_at": "2022-04-19T05:28:31.110",
+            "updated_at": "2022-04-19T05:28:31.110",
+            "category": [
+                3
+            ]
+        }
+    }
+]

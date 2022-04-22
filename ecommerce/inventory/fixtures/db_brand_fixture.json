@@ -1,0 +1,9 @@
+[
+    {
+        "model": "inventory.brand",
+        "pk": 1,
+        "fields": {
+            "name": "shuaigle"
+        }
+    }
+]
