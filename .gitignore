@@ -40,6 +40,7 @@ pip-delete-this-directory.txt
 # pytest
 conftest.py
 .pytest_cache
+pytest.ini
 
 # Translations
 *.mo
@@ -52,6 +53,10 @@ db.sqlite3
 db.sqlite3-journal
 migrations
 000*_*.py
+
+#chrome
+chromedriver
+command.txt
 
 # Scrapy stuff:
 .scrapy
