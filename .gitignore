@@ -38,9 +38,7 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # pytest
-conftest.py
 .pytest_cache
-pytest.ini
 
 # Translations
 *.mo
@@ -121,3 +119,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# stuff
+stuff

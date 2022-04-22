@@ -1,6 +1,0 @@
-building data fixtures fore the category table:
-    python3 manage.py dumpdata inventory.category > category.json
-    python3 manage.py dumpdata inventory.product > product.json
-    python3 manage.py dumpdata inventory.productinventory > product_inventory.json
-    python3 manage.py dumpdata inventory.producttype > type.json
-    python3 manage.py dumpdata inventory.brand > brand.json
