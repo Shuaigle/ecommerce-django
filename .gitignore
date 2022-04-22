@@ -37,19 +37,9 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
+# pytest
+conftest.py
+.pytest_cache
 
 # Translations
 *.mo
@@ -60,10 +50,8 @@ coverage.xml
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
+migrations
+000*_*.py
 
 # Scrapy stuff:
 .scrapy
@@ -127,3 +115,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
