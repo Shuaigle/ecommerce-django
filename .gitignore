@@ -51,6 +51,7 @@ db.sqlite3
 db.sqlite3-journal
 migrations
 000*_*.py
+.DS_Store
 
 #chrome
 chromedriver

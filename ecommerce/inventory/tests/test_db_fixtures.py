@@ -1,7 +1,7 @@
 import pytest
 from django.db import IntegrityError
 from ecommerce.inventory import models
-
+from decimal import Decimal
 
 @pytest.mark.dbfixture
 @pytest.mark.parametrize(
@@ -109,32 +109,32 @@ def test_inventory_product_insert_data(db, product_factory):
         (
             1,
             "1111111",
-            "12321352453",
+            "123123",
             1,
             1,
+            "shuaigle",
             1,
-            1,
-            97.00,
-            93.00,
-            44.00,
+            '97.00',
+            '92.00',
+            '44.00',
             724,
-            "2022-02-02 22:22:22",
-            "2022-02-02 22:22:22",
+            "2022-04-21 08:34:09",
+            "2022-04-21 08:34:09",
         ),
         (
             5,
-            "1121111",
-            "12322352453",
+            "1235436",
+            "2445674",
             1,
             1,
+            "shuaigle",
             1,
-            1,
-            92.00,
-            91.00,
-            41.00,
+            '92.00',
+            '111.11',
+            '41.00',
             721,
-            "2022-02-02 22:23:22",
-            "2022-02-02 22:23:22",
+            "2022-04-21 08:37:30",
+            "2022-04-21 08:37:30",
         ),
     ],
 )
@@ -153,15 +153,15 @@ def test_inventory_product_inventory_dbfixture(
     sale_price,
     weight,
     created_at,
-    updated_ay,
+    updated_at,
 ):
     result = models.ProductInventory.objects.get(id=id)
     result_created_at = result.created_at.strftime("%Y-%m-%d %H:%M:%S")
     assert result.sku == sku
     assert result.upc == upc
-    assert product_type.id == product_type
-    assert result.brand.id == brand
-    assert result.store_price == store_price
+    assert product_type == product_type
+    assert result.brand.name == brand
+    assert result.store_price == Decimal(store_price)   # warning asserst Decimal == float
     assert result_created_at == created_at
 
 
@@ -169,10 +169,10 @@ def test_inventory_product_inventory_insert_data(
     db, product_inventory_factory
 ):
     new_product = product_inventory_factory.create(
-        sku="1111111",
+        sku="11112211",
         upc="314235y946375",
         product_type__name="new_name",
         product__web_id="11111122",
         brand__name="new_name",
     )
-    assert new_product.sku == "1111111"
+    assert new_product.sku == "11112211"
