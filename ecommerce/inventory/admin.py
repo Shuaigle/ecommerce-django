@@ -5,6 +5,7 @@ from ecommerce.inventory.models import (
     Product,
     ProductInventory,
     ProductType,
+    Media,
 )
 
 admin.site.register(Category)
@@ -12,3 +13,4 @@ admin.site.register(Product)
 admin.site.register(ProductInventory)
 admin.site.register(ProductType)
 admin.site.register(Brand)
+admin.site.register(Media)

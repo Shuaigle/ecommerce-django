@@ -198,19 +198,19 @@ def test_inventory_brand_insert_data(db, brand_factory):
             1,
             1,
             "images/default.png",
-            "a default image",
+            "black",
             1,
-            "",
-            "",
+            "2022-04-26 02-20-51",
+            "2022-04-26 02-20-51",
         ),
         (
-            77,
-            77,
+            4,
+            4,
             "images/default.png",
-            "a default image",
+            "pink",
             1,
-            "",
-            "",
+            "2022-04-26 02-23-07",
+            "2022-04-26 02-23-07",
         ),
     ],
 )
@@ -227,7 +227,7 @@ def test_inventory_media_dbfixture(
 ):
     result = models.Media.objects.get(id=id)
     result_created_at = result.created_at.strftime("%Y-%m-%d %H-%M-%S")
-    assert result.product_ineventory.id == product_inventory
+    assert result.product_inventory.id == product_inventory
     assert result.image == image
     assert result.alt_text == alt_text
     assert result_created_at == created_at
