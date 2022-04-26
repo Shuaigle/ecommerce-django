@@ -115,6 +115,9 @@ class ProductAttributeValuesFactory(factory.django.DjangoModelFactory):
 
 
 class ProductWithAttributeValuesFactory(ProductInventoryFactory):
+    """
+    buit two attribute automatically
+    """
     attributevalues1 = factory.RelatedFactory(
         ProductAttributeValuesFactory,
         factory_related_name="productinventory",
