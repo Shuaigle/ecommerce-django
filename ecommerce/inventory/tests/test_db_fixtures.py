@@ -176,3 +176,62 @@ def test_inventory_product_inventory_insert_data(
         brand__name="new_name",
     )
     assert new_product.sku == "11112211"
+
+def test_inventory_producttype_insert_data(db, product_type_factory):
+    new_type = product_type_factory.create(name="demo_type")
+    assert new_type.name == "demo_type"
+
+def test_inventory_db_producttype_uniqueness_integrity(db, product_type_factory):
+    product_type_factory.create(name="is_unique")
+    with pytest.raises(IntegrityError):
+        product_type_factory.create(name="is_unique")
+
+def test_inventory_brand_insert_data(db, brand_factory):
+    new_brand = brand_factory.create(name="new_brand")
+    assert new_brand.name == "new_brand"
+
+@pytest.mark.dbfixture
+@pytest.mark.parametrize(
+    "id, product_inventory, image, alt_text, is_feature, created_at, updated_at",
+    [
+        (
+            1,
+            1,
+            "images/default.png",
+            "a default image",
+            1,
+            "",
+            "",
+        ),
+        (
+            77,
+            77,
+            "images/default.png",
+            "a default image",
+            1,
+            "",
+            "",
+        ),
+    ],
+)
+def test_inventory_media_dbfixture(
+    db,
+    db_fixture_setup,
+    id,
+    product_inventory,
+    image,
+    alt_text,
+    is_feature,
+    created_at,
+    updated_at,
+):
+    result = models.Media.objects.get(id=id)
+    result_created_at = result.created_at.strftime("%Y-%m-%d %H-%M-%S")
+    assert result.product_ineventory.id == product_inventory
+    assert result.image == image
+    assert result.alt_text == alt_text
+    assert result_created_at == created_at
+
+def test_inventory_media_insert_data(db, media_factory):
+    new_media = media_factory.create(product_inventory__sku="123123123")
+    assert new_media.product_inventory.sku == "123123123"
