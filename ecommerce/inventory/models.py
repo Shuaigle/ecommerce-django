@@ -390,7 +390,7 @@ class ProductAttributeValues(models.Model):
 
     attributevalues = models.ForeignKey(
         "ProductAttributeValue",
-        related_name="attributevaluess",
+        related_name="productattributevaluess",
         on_delete=models.PROTECT,
     )
     productinventory = models.ForeignKey(

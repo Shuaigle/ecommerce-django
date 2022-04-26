@@ -8,6 +8,8 @@ from ecommerce.inventory.models import (
     Media,
     Stock,
     ProductAttribute,
+    ProductAttributeValue,
+    ProductAttributeValues,
 )
 
 admin.site.register(Category)
@@ -18,3 +20,5 @@ admin.site.register(Brand)
 admin.site.register(Media)
 admin.site.register(Stock)
 admin.site.register(ProductAttribute)
+admin.site.register(ProductAttributeValue)
+admin.site.register(ProductAttributeValues)

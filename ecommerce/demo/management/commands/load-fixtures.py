@@ -16,3 +16,5 @@ class Command(BaseCommand):
         call_command("loaddata", "db_media_fixture.json")
         call_command("loaddata", "db_stock_fixture.json")
         call_command("loaddata", "db_productattribute_fixture.json")
+        call_command("loaddata", "db_productattributevalue_fixture.json")
+        call_command("loaddata", "db_productattributevalues_fixture.json")
