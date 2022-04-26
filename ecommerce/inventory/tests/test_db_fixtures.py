@@ -200,8 +200,8 @@ def test_inventory_brand_insert_data(db, brand_factory):
             "images/default.png",
             "black",
             1,
-            "2022-04-26 02-20-51",
-            "2022-04-26 02-20-51",
+            "2022-04-26 02:20:51",
+            "2022-04-26 02:20:51",
         ),
         (
             4,
@@ -209,8 +209,8 @@ def test_inventory_brand_insert_data(db, brand_factory):
             "images/default.png",
             "pink",
             1,
-            "2022-04-26 02-23-07",
-            "2022-04-26 02-23-07",
+            "2022-04-26 02:23:07",
+            "2022-04-26 02:23:07",
         ),
     ],
 )
@@ -226,8 +226,8 @@ def test_inventory_media_dbfixture(
     updated_at,
 ):
     result = models.Media.objects.get(id=id)
-    result_created_at = result.created_at.strftime("%Y-%m-%d %H-%M-%S")
-    assert result.product_inventory.id == product_inventory
+    result_created_at = result.created_at.strftime("%Y-%m-%d %H:%M:%S")
+    assert result.product_inventory_id == product_inventory
     assert result.image == image
     assert result.alt_text == alt_text
     assert result_created_at == created_at
@@ -235,3 +235,54 @@ def test_inventory_media_dbfixture(
 def test_inventory_media_insert_data(db, media_factory):
     new_media = media_factory.create(product_inventory__sku="123123123")
     assert new_media.product_inventory.sku == "123123123"
+
+@pytest.mark.dbfixture
+@pytest.mark.parametrize(
+    "id, product_inventory, last_checked, units, units_sold",
+    [
+        (1, 1, "2022-04-26 03:42:22", 12, 3),
+        (6, 6, "2022-04-26 03:43:25", 666, 34)
+    ]
+)
+def test_inventory_stock_fixture(
+    db,
+    db_fixture_setup,
+    id,
+    product_inventory,
+    last_checked,
+    units,
+    units_sold,
+):
+    result = models.Stock.objects.get(id=id)
+    result_last_checked = result.last_checked.strftime("%Y-%m-%d %H:%M:%S")
+    assert result.product_inventory_id == product_inventory
+    assert result_last_checked == last_checked
+    assert result.units == units
+    assert result.units_sold == units_sold
+
+@pytest.mark.dbfixture
+@pytest.mark.parametrize(
+    "id, name, description",
+    [
+        (1, "mechanical-keyboard", "mechanical-keyboard"),
+    ],
+)
+def test_inventory_product_attribute_fixture(
+    db, db_fixture_setup, id, name, description
+):
+    result = models.ProductAttribute.objects.get(id=id)
+    assert result.name == name
+    assert result.description == description
+
+def test_inventory_product_attribute_insert_data(
+    db, product_attribute_factory
+):
+    new_attribute = product_attribute_factory.create()
+    assert new_attribute.name == "attribute_name_0"
+
+def test_inventory_product_attribute_uniqueness_integrity(
+    db, product_attribute_factory
+):
+    product_attribute_factory.create(name="check_unique")
+    with pytest.raises(IntegrityError):
+        product_attribute_factory.create(name="check_unique")

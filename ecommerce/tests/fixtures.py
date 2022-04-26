@@ -21,4 +21,6 @@ def db_fixture_setup(django_db_setup, django_db_blocker):
         call_command("loaddata", "db_brand_fixture.json")
         call_command("loaddata", "db_product_inventory_fixture.json")
         call_command("loaddata", "db_media_fixture.json")
+        call_command("loaddata", "db_stock_fixture.json")
+        call_command("loaddata", "db_productattribute_fixture.json")
         

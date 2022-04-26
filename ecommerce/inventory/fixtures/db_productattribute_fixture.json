@@ -1,0 +1,10 @@
+[
+    {
+        "model": "inventory.productattribute",
+        "pk": 1,
+        "fields": {
+            "name": "mechanical-keyboard",
+            "description": "mechanical-keyboard"
+        }
+    }
+]
