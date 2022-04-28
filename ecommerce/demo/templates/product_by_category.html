@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1>Products in Category</h1>
 <ul>
     {% for d in data %}
         <li>{{d.name}} [<a href="{% url 'demo:product_detail' slug=d.slug %}">view</a>]</li>
