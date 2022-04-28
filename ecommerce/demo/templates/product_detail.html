@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>product detail</h1>
+<ul>
+    {% for d in data  %}
+        <li>{{d.product__name}}</li>
+        <li>Price: ${{d.store_price}}</li>
+        <li>Units: {{d.product_inventory__units}}</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
+    {% for d in data  %}{% endfor %}
