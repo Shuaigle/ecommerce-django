@@ -58,7 +58,7 @@ class Product(models.Model):
     """
 
     web_id = models.CharField(
-        max_length=50,
+        max_length=100,
         unique=True,
         null=False,
         blank=False,
@@ -66,7 +66,7 @@ class Product(models.Model):
         help_text=_("formate: required, unique"),
     )
     slug = models.SlugField(
-        max_length=100,
+        max_length=150,
         unique=False,
         null=False,
         blank=False,
@@ -76,7 +76,7 @@ class Product(models.Model):
         ),
     )
     name = models.CharField(
-        max_length=150,
+        max_length=200,
         unique=True,
         null=False,
         blank=False,
@@ -115,42 +115,6 @@ class Product(models.Model):
         return self.name
 
 
-class ProductType(models.Model):
-    """
-    Product type table
-    """
-
-    name = models.CharField(
-        max_length=255,
-        unique=True,
-        null=False,
-        blank=False,
-        verbose_name=_("type of product"),
-        help_text=_("format: required, unique, max-255"),
-    )
-
-    def __str__(self):
-        return self.name
-
-
-class Brand(models.Model):
-    """
-    Product brand table
-    """
-
-    name = models.CharField(
-        max_length=255,
-        unique=True,
-        null=False,
-        blank=False,
-        verbose_name=_("brand name"),
-        help_text=_("format: required, unique, max-255"),
-    )
-
-    def __str__(self):
-        return self.name
-
-
 class ProductAttribute(models.Model):
     """
     Product attribute table
@@ -170,6 +134,48 @@ class ProductAttribute(models.Model):
         blank=False,
         verbose_name=_("product attribute description"),
         help_text=_("format: required"),
+    )
+
+    def __str__(self):
+        return self.name
+
+
+class ProductType(models.Model):
+    """
+    Product type table
+    """
+
+    name = models.CharField(
+        max_length=255,
+        unique=True,
+        null=False,
+        blank=False,
+        verbose_name=_("type of product"),
+        help_text=_("format: required, unique, max-255"),
+    )
+
+    product_type_attribute = models.ManyToManyField(
+        ProductAttribute,
+        related_name="producttypeattributes",
+        through="ProductTypeAttribute",
+    )
+
+    def __str__(self):
+        return self.name
+
+
+class Brand(models.Model):
+    """
+    Product brand table
+    """
+
+    name = models.CharField(
+        max_length=255,
+        unique=True,
+        null=False,
+        blank=False,
+        verbose_name=_("brand name"),
+        help_text=_("format: required, unique, max-255"),
     )
 
     def __str__(self):
@@ -413,12 +419,12 @@ class ProductTypeAttribute(models.Model):
     """
     product_attribute = models.ForeignKey(
         ProductAttribute, 
-        related_name="product_attribute", 
+        related_name="productattribute", 
         on_delete=models.PROTECT
     )
     product_type = models.ForeignKey(
         ProductType, 
-        related_name="product_type", 
+        related_name="producttype", 
         on_delete=models.PROTECT
     )
 
