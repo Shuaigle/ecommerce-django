@@ -3,11 +3,20 @@
 {% block content %}
 <h1>Product detail</h1>
 <ul>
-    {% for d in data  %}
-        <li>{{d.product__name}}</li>
-        <li>Price: ${{d.store_price}}</li>
-        <li>Units: {{d.product_inventory__units}}</li>
+    <li>{{data.product__name}}</li>
+    <li>Price: ${{data.store_price}}</li>
+    <li>Units: {{data.product_inventory__units}}</li>
+
+</ul>
+<ul>
+{% for attributename in att_name %}
+{{attributename.product_attribute__name}}
+    {% for attribute in att_val_name %}
+        {% if  attribute.attribute_values__product_attribute__name == attributename.product_attribute__name%}
+            <li>{{attribute.attribute_values__attribute_value}}</li>
+        {% endif %}
     {% endfor %}
+<br>
+{% endfor %}
 </ul>
 {% endblock content %}
-    {% for d in data  %}{% endfor %}
