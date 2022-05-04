@@ -1,37 +1,40 @@
 {% extends 'base.html' %}
 
+{% block title %}Product Detail{% endblock %}
+
 {% block content %}
 <h1>Product detail</h1>
 <ul>
-    <li>{{data.product__name}}</li>
-    <li>Price: ${{data.store_price}}</li>
-    <li>sku: {{data.sku}}</li>
-    <li>Units: {{data.product_inventory__units}}</li>
-    
+    <li class="text-capitalize">
+    {{data.product__name}}
+    </li>
+    <ul class="list-unstyled">
+    <li>SKU: {{data.sku}}
+    <li>Price: £{{data.store_price}}</li>
+    <li>{{data.attribute_values__attribute_value}}</li>
+    <li>Stock: {{data.product_inventory__units}}</li>
+    </ul>
 </ul>
+
 <ul>
-{% for attributename in att_name %}
-    {{attributename.product_attribute__name}}
-        {% for attribute in att_val_name %}
-            {% if  attribute.attribute_values__product_attribute__name == attributename.product_attribute__name%}
-                {% if attribute.attribute_values__attribute_value in data.field_a %}
-                    <li id="target-{{attribute.attribute_values__attribute_value}}" 
-                    class="selected fw-bold"
-                    data-attribute="{{attribute.product_attribute__name}}" 
-                    value="{{attribute.attribute_values__attribute_value}}">
-                        {{attribute.attribute_values__attribute_value}}
-                    </li>
-                {% else %}
-                    <li id="target-{{attribute.attribute_values__attribute_value}}"
-                    data-attribute="{{attribute.product_attribute__name}}" 
-                    value="{{attribute.attribute_values__attribute_value}}">
-                        {{attribute.attribute_values__attribute_value}}
-                    </li>
-                {% endif %}
+  {% for y in att_name %}
+    <li class="text-capitalize">
+    {{y.product_attribute__name}}
+    <ul>
+      {% for a in att_val_name %}
+        {% if a.attribute_values__product_attribute__name == y.product_attribute__name  %}
+        <li class="text-capitalize">
+            {% if a.attribute_values__attribute_value in data.field_a %}
+            <div id="target-{{a.attribute_values__attribute_value}}" class="selected fw-bold" data-attribute="{{y.product_attribute__name}}" value="{{a.attribute_values__attribute_value}}">{{a.attribute_values__attribute_value}}</div>
+            {% else %}
+            <div id="target-{{a.attribute_values__attribute_value}}" class="" data-attribute="{{y.product_attribute__name}}" value="{{a.attribute_values__attribute_value}}">{{a.attribute_values__attribute_value}}</div>
             {% endif %}
-        {% endfor %}
-    <br>
-{% endfor %}
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    </li>
+  {% endfor %}
 </ul>
 
 <script>
@@ -61,11 +64,12 @@
         window.location.href = url + "?" + querystring
     }, false)
 
-    function buildUrlWithParams(datas) {
+    function buildUrlWithParams(data) {
         var searchparams = []
-        for (var d in datas)
-            searchparams.push(d + '=' + datas[d]) //key = key.value
+        for (var d in data){
+            searchparams.push(d + '=' + data[d])
+        }
         return searchparams.join('&')
-    }
+  }
 </script>
 {% endblock content %}
