@@ -34,8 +34,8 @@ def product_detail(request, slug):
 
         data = models.ProductInventory.objects.filter(product__slug=slug).filter(
             attribute_values__attribute_value__in=filter_arguments).annotate(
-            num_tags=Count('attribute_values')).filter(num_tags=len(
-            filter_arguments)).values(
+            num_tags=Count('attribute_values')).filter(num_tags=len(filter_arguments)
+            ).values(
             "id", "sku", "product__name", "store_price", "product_inventory__units"
             ).annotate(field_a=ArrayAgg("attribute_values__attribute_value")).get()
     else:
@@ -44,15 +44,15 @@ def product_detail(request, slug):
             "id", "sku", "product__name", "store_price", "product_inventory__units"
             ).annotate(field_a=ArrayAgg("attribute_values__attribute_value")).get()
         
-        #print(data)
+        # print(data)
 
     att_val_name = models.ProductInventory.objects.filter(product__slug=slug
         ).distinct().values(
         "attribute_values__product_attribute__name", "attribute_values__attribute_value")
 
     att_name = models.ProductTypeAttribute.objects.filter(
-        product_type__product_type__product__slug=slug).values(
-        "product_attribute__name").distinct()
+        product_type__product_type__product__slug=slug).distinct().values(
+        "product_attribute__name")
  
     return render(request, "product_detail.html", 
                 {"data": data, "att_val_name": att_val_name,"att_name": att_name})
