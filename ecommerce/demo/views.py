@@ -37,16 +37,17 @@ def product_detail(request, slug):
             num_tags=Count('attribute_values')).filter(num_tags=len(filter_arguments)
             ).values(
             "id", "sku", "product__name", "store_price", "product_inventory__units"
-            ).annotate(field_a=ArrayAgg("attribute_values__attribute_value"))
-        print(data)
-        data = data.get()
+            ).annotate(field_a=ArrayAgg("attribute_values__attribute_value")).get()
+
+        # print(data)
+        
     else:
         data = models.ProductInventory.objects.filter(product__slug=slug).filter(
             is_default=True).values(
             "id", "sku", "product__name", "store_price", "product_inventory__units"
             ).annotate(field_a=ArrayAgg("attribute_values__attribute_value")).get()
         
-        print(data)
+        # print(data)
 
     att_val_name = models.ProductInventory.objects.filter(product__slug=slug
         ).distinct().values(

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "ecommerce.inventory",
     "ecommerce.demo",
     "mptt",
+    "django_elasticsearch_dsl",
 ]
 
 MIDDLEWARE = [
@@ -97,6 +98,12 @@ DATABASES = {
     }
 }
 
+# elasticsearch
+ELASTICSEARCH_DSL={
+    'default': {
+        'hosts': 'localhost:9200'
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
