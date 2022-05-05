@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     "ecommerce.dashboard",
     "ecommerce.inventory",
     "ecommerce.demo",
+    "ecommerce.drf",
     "mptt",
     "django_elasticsearch_dsl",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
