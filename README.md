@@ -23,3 +23,7 @@ Ecommerce-Django is a website built mainly in django and django rest framework.
 - runserver
 - ``$ python3 manage.py runserver ``
 - it'll run at 127.0.0.1:8000
+
+## Test
+
+- use ``$ pytest`` for testing
