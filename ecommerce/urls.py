@@ -6,7 +6,7 @@ from ecommerce.drf.views import AllProductsViewsets
 
 router = routers.DefaultRouter()
 router.register(
-    r'home', AllProductsViewsets, basename="allproducts"
+    r'api', AllProductsViewsets, basename="allproducts"
 )
 
 urlpatterns = [
